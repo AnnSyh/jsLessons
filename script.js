@@ -36,24 +36,24 @@ for (let i = 0 ; i < 2; i++) {
 
 	do {
 		a = prompt("Введите обязательную статью расходов в этом месяце", ''),
-		b = prompt("Во сколько обойдется?", '');
+		b = prompt("Во сколько обойдется?", '');		
 
-		if (  a.length > 0 && b.length > 0 ){
+		if (  a.length > 0 && b.length > 0 && a.length <= 50 && b.length <= 50 ){
 			appData.expenses[a] = b;
+			console.log('appData.expenses['+ a +'] = ', appData.expenses[a]);
 		}
 
 	} while ( a.length == 0 || b.length == 0 || typeof(a) == null || typeof(b) == null );		
 
 }
 	
-
 appData.moneyPerDay = appData.budget / 30;
 
 alert("Ежедневный бюджет = " + appData.moneyPerDay);
 
-if ( appData.moneyPerDay < 100) {
+if ( appData.moneyPerDay <= 100) {
 	console.log("Минимальный уровень достатка");
-} else if ( appData.moneyPerDay > 100  &&  appData.moneyPerDay < 2000) {
+} else if ( appData.moneyPerDay > 100  &&  appData.moneyPerDay <= 2000) {
 	console.log("Средний уровень достатка");
 } else if ( appData.moneyPerDay > 2000) {
 	console.log("Высокий уровень достатка");
